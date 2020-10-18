@@ -39,20 +39,26 @@ export default function Home(props) {
   useEffect(() => {
     const revealSections = [intro, projectOne, projectTwo, projectThree, about];
 
-    const sectionObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const section = entry.target;
-          observer.unobserve(section);
-          if (visibleSections.includes(section)) return;
-          setVisibleSections(prevSections => [...prevSections, section]);
-        }
-      });
-    }, { rootMargin: '0px 0px -10% 0px' });
+    const sectionObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const section = entry.target;
+            observer.unobserve(section);
+            if (visibleSections.includes(section)) return;
+            setVisibleSections(prevSections => [...prevSections, section]);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -10% 0px' }
+    );
 
-    const indicatorObserver = new IntersectionObserver(([entry]) => {
-      setScrollIndicatorHidden(!entry.isIntersecting);
-    }, { rootMargin: '-100% 0px 0px 0px' });
+    const indicatorObserver = new IntersectionObserver(
+      ([entry]) => {
+        setScrollIndicatorHidden(!entry.isIntersecting);
+      },
+      { rootMargin: '-100% 0px 0px 0px' }
+    );
 
     revealSections.forEach(section => {
       sectionObserver.observe(section.current);
@@ -81,15 +87,21 @@ export default function Home(props) {
       const behavior = scroll && !prefersReducedMotion ? 'smooth' : 'instant';
       const top = element.current.offsetTop;
 
-      scrollObserver = new IntersectionObserver((entries, observer) => {
-        const [entry] = entries;
-        if (entry.isIntersecting) {
-          scrollTimeout = setTimeout(() => {
-            element.current.focus();
-          }, prefersReducedMotion ? 0 : 400);
-          observer.unobserve(entry.target);
-        }
-      }, { rootMargin: '-20% 0px -20% 0px' });
+      scrollObserver = new IntersectionObserver(
+        (entries, observer) => {
+          const [entry] = entries;
+          if (entry.isIntersecting) {
+            scrollTimeout = setTimeout(
+              () => {
+                element.current.focus();
+              },
+              prefersReducedMotion ? 0 : 400
+            );
+            observer.unobserve(entry.target);
+          }
+        },
+        { rootMargin: '-20% 0px -20% 0px' }
+      );
 
       scrollObserver.observe(element.current);
 
@@ -172,7 +184,7 @@ export default function Home(props) {
         buttonLink="https://supernote.codyb.co"
         model={{
           type: 'phone',
-          alt: 'Supernote\'s splash screen.',
+          alt: "Supernote's splash screen.",
           textures: [
             {
               src: supernoteHomeTexture,
@@ -187,6 +199,7 @@ export default function Home(props) {
           ],
         }}
       />
+
       <ProjectSummary
         id="project-3"
         sectionRef={projectThree}
