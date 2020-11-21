@@ -21,7 +21,7 @@ import dttTexturePlaceholder from 'assets/dtt-placeholder.jpg';
 import iphone11 from 'assets/iphone-11.glb';
 import macbookPro from 'assets/macbook-pro.glb';
 
-const disciplines = ['Developer', 'Creator', 'Animator', 'Illustrator', 'Musician'];
+const disciplines = ['Developer', 'Travel Blogger'];
 
 export default function Home(props) {
   const { status } = useRouteTransition();
