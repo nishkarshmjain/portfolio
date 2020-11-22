@@ -26,7 +26,7 @@ const Heading = ({
             {`
               @font-face {
                 font-family: 'Gotham';
-                font-weight: 700;
+                font-weight: 1000;
                 src: url(${GothamBold}) format('woff2');
                 font-display: swap;
               }

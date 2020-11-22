@@ -21,7 +21,7 @@ import dttTexturePlaceholder from 'assets/dtt-placeholder.jpg';
 import iphone11 from 'assets/iphone-11.glb';
 import macbookPro from 'assets/macbook-pro.glb';
 
-const disciplines = ['Developer', 'Travel Blogger'];
+const disciplines = ['Developer', 'Travel Blogger', 'Writer'];
 
 export default function Home(props) {
   const { status } = useRouteTransition();
@@ -137,10 +137,10 @@ export default function Home(props) {
   return (
     <Fragment>
       <Helmet>
-        <title>Cody Bennett | Designer + Developer</title>
+        <title>Nishkarsh Jain | Data Scientist + Developer</title>
         <meta
           name="description"
-          content="Portfolio of Cody Jason Bennett – a designer, full-stack developer, and creator of web & mobile solutions with a focus on motion and user experience."
+          content="Portfolio of Nishkarsh Jain – Data Scientist and Developer."
         />
         <link rel="prefetch" href={iphone11} as="fetch" crossorigin="" />
         <link rel="prefetch" href={macbookPro} as="fetch" crossorigin="" />
